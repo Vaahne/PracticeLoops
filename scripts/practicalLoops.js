@@ -9,27 +9,27 @@ for(let i=1;i<=100;i++){
     }else
         console.log(i);
 }
-//Part 2 next Prime number
+//Part 2 next Prime number 
 console.log("Part 2")
-let num = 5;
-let prime=0;
-let previousNum = num;
-for(;;++num){
+let num = 9;
+let prime;
+let originalNum = num;
+for(num=num+1;;num++){   // starts from next given number
     let multiplier = 0;
     for(let i=2;i<num;i++){
-        if(num%i==0){
-            multiplier++;
-            break;
+        if(num%i==0){   //checks if any number divisible to the number
+            multiplier++;   // it has a number divisible means not prime
+            break;      // comes out of the inner loop 
         }
     }
-    if(multiplier==0 && num!=previousNum){
+    if(multiplier==0 ){  //  prime check
         prime = num;
         break;
     }
 }
-console.log(`next prime number is ${prime}`)
+console.log(`Next prime number to ${originalNum} is ${prime}`)
 
-// csv data display
+// Part 3 csv data display 
 
 console.log("===============Part3=====================");
  let data = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
@@ -39,15 +39,10 @@ console.log("===============Part3=====================");
 let lines = '';
 let words = '';
 
-for (let x of data){
-    // if(x == ','){
-    //     words += " ";
-    //     lines += " ";
-    //     continue;
-    // }else
+for (let x of data){ 
      if(x == '\n'){
         lines +="\n";
-        words += ",";
+        words += "|";
     }else{
         words += x;
     }    
@@ -56,26 +51,39 @@ for (let x of data){
 console.log("Display data in lines");
 console.log(lines);
 
-
-console.log(" Display cell data")
+// Data into cells
+console.log("\n Display cell data\n")
 
 let cell1 = '',cell2 ='', cell3 ='',cell4 ='';
-
-let l= words.split(",");
-
-// for (let i = 0; i< l.length ; i++){
-//     console.log(`${l[i]} is in ${i}`)
-// }
+let l= words.split("|");
 
 for(let i = 0 ;i <l.length;i++){
-    if(i%4 == 0){
-        cell1 += l[i] + " ";
-        // console.log(l[i] +" inside the condi" + i);
-     }else if(i%4 == 1){
-        cell2 += l[i]+" ";
-    }else if(i%4 ==2){
-        cell3 += l[i] + " ";
-    }else
-        cell4 += l[i]+" ";
+    let w = l[i].split(",");
+    cell1 = w[0];
+    cell2 = w[1];
+    cell3 = w[2];
+    cell4 = w[3];
+    console.log(`${cell1} ${cell2} ${cell3} ${cell4}`);
 }
-console.log(`\n Cell1 : ${cell1} \n Cell2: ${cell2} \n Cell3: ${cell3} \n Cell4: ${cell4}`)
+
+//  Method 2
+console.log("Another method");
+lines = data.split("\n");
+for(let c of lines){
+    let cells = c.split(",");
+    console.log(`${cells[0]} ${cells[1]} ${cells[2]} ${cells[3]}`)
+}
+
+
+// for(let i = 0 ;i <l.length;i++){
+        // if(i%4 == 0){
+    //     cell1 = l[i] + " ";
+    //     // console.log(l[i] +" inside the condi" + i);
+    //  }else if(i%4 == 1){
+    //     cell2 = l[i]+" ";
+    // }else if(i%4 ==2){
+    //     cell3 = l[i] + " ";
+    // }else
+    //     cell4 = l[i]+" ";
+// }
+//console.log(` Cell1 : ${cell1}  Cell2: ${cell2}  Cell3: ${cell3}  Cell4: ${cell4}`)
