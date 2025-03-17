@@ -1,4 +1,4 @@
-//  Part 1
+//  Part 1 Fizz Buzz 
 for(let i=1;i<=100;i++){
     if(i%15==0){
         console.log("Fizz Buzz");
@@ -9,7 +9,7 @@ for(let i=1;i<=100;i++){
     }else
         console.log(i);
 }
-//Part 2
+//Part 2 next Prime number
 console.log("Part 2")
 let num = 5;
 let prime=0;
@@ -29,6 +29,8 @@ for(;;++num){
 }
 console.log(`next prime number is ${prime}`)
 
+// csv data display
+
 console.log("===============Part3=====================");
  let data = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
 
@@ -38,32 +40,42 @@ let lines = '';
 let words = '';
 
 for (let x of data){
-    if(x == ','){
-        words += " ";
-        lines += " ";
-        continue;
-    }else if(x == '\n'){
+    // if(x == ','){
+    //     words += " ";
+    //     lines += " ";
+    //     continue;
+    // }else
+     if(x == '\n'){
         lines +="\n";
+        words += ",";
     }else{
         words += x;
     }    
     lines += x;
 }
+console.log("Display data in lines");
 console.log(lines);
+
+
+console.log(" Display cell data")
 
 let id = '',names ='', Occupation ='',age ='';
 
-let l= lines.split(" ");
-console.log(" fadsfsdfa"+l[2]);
+let l= words.split(",");
 
-// for(let i = 0 ;i <lines.length;i++){
-//     if(i%4 == 0){
-//         id += lines[i];
-//     }else if(i%4 == 1){
-//         names += lines[i];
-//     }else if(i%4 ==2){
-//         Occupation += lines[i];
-//     }else
-//         age += lines[i];
+// for (let i = 0; i< l.length ; i++){
+//     console.log(`${l[i]} is in ${i}`)
 // }
-// console.log(`ids ${id} and name ${names} and occupation ${Occupation} and age ${age}`)
+
+for(let i = 0 ;i <l.length;i++){
+    if(i%4 == 0){
+        id += l[i] + " ";
+        // console.log(l[i] +" inside the condi" + i);
+     }else if(i%4 == 1){
+        names += l[i]+" ";
+    }else if(i%4 ==2){
+        Occupation += l[i] + " ";
+    }else
+        age += l[i]+" ";
+}
+console.log(`ids ${id} \n Names ${names} \n Occupation ${Occupation} \n Age ${age}`)
