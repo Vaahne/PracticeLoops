@@ -59,7 +59,7 @@ console.log(lines);
 
 console.log(" Display cell data")
 
-let id = '',names ='', Occupation ='',age ='';
+let cell1 = '',cell2 ='', cell3 ='',cell4 ='';
 
 let l= words.split(",");
 
@@ -69,13 +69,13 @@ let l= words.split(",");
 
 for(let i = 0 ;i <l.length;i++){
     if(i%4 == 0){
-        id += l[i] + " ";
+        cell1 += l[i] + " ";
         // console.log(l[i] +" inside the condi" + i);
      }else if(i%4 == 1){
-        names += l[i]+" ";
+        cell2 += l[i]+" ";
     }else if(i%4 ==2){
-        Occupation += l[i] + " ";
+        cell3 += l[i] + " ";
     }else
-        age += l[i]+" ";
+        cell4 += l[i]+" ";
 }
-console.log(`ids ${id} \n Names ${names} \n Occupation ${Occupation} \n Age ${age}`)
+console.log(`\n Cell1 : ${cell1} \n Cell2: ${cell2} \n Cell3: ${cell3} \n Cell4: ${cell4}`)
